@@ -23,6 +23,7 @@ float a = exp(-T/td);
 int i;
 
 float ki = 0.2344, kc = 0.325, kd = 0.0901;
+float realki = 0.2344, realkc = 0.325, realkd = 0.0901;
 
 String info;
 String ctrl;
@@ -107,28 +108,49 @@ void loop()
     matrizM[2] = matrizM[1];
     matrizM[1] = matrizM[0];
     
-   if (control == 1){
+   if (control == 1){   //PID
+      kc = realkc;
+      ki = realki;
+      kd = realkd;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
    }
-   if (control == 2){
+   if (control == 2){   //PI
+      kc = realkc;
+      ki = realki;
+      kd = 0;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
    }
-   if (control == 3){
+   if (control == 3){   //P
+      kc = realkc;
+      ki = 0;
+      kd = 0;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
    }
-    if (control == 4){
+    if (control == 4){   //PD
+      kc = realkc;
+      ki = 0;
+      kd = realkd;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
     }
-    if (control == 5){
+    if (control == 5){  //ID
+      kc = 0;
+      ki = realki;
+      kd = realkd;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
     }
-    if (control == 6){
+    if (control == 6){  //I
+      kc = 0;
+      ki = realki;
+      kd = 0;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
     }
-    if (control == 7){
+    if (control == 7){  //D
+      kc = 0;
+      ki = 0;
+      kd = realkd;
       matrizM[0] = ((kc+ki*T/2+kd*2/T)*matrizE[0]) +2*(((ki*T/2)-2*kd/T)*matrizE[1]) + ((-kc+ki*T/2+2*kd/T)*matrizE[2]) + matrizM[2] ;
     }
-    if (control == 8){
+    if (control == 8){  //DAHLIN
       matrizM[0] = -(1-a)*matrizM[1] + a*matrizM[2] + (1-a)*matrizM[11] + (1-a)*matrizM[12] + (1-a)*matrizE[1]/0.1419 - (1-a)*matrizE[2]*0.9043/0.1419;
     }
     
