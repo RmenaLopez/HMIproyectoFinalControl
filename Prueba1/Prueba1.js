@@ -186,6 +186,11 @@ function setup() {
 
       //serial.write(controlUsado + "," + setPoint.toString());
 
+
+      if (controlUsado != "Lazo abierto"){
+        maxGrados = 60;
+        minGrados = -60;
+      }
       if (controlUsado === "PID"){
         controlUsado = 1;
       }

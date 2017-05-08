@@ -109,7 +109,7 @@ void loop()
     matrizM[1] = matrizM[0];
    
       if (control == 0) {
-      matrizM[0] = SetPoint;
+      matrizM[0] = SetPoint-60;
     }
     
    if (control == 1){   //PID
