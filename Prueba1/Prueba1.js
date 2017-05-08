@@ -210,6 +210,11 @@ function setup() {
       else if (controlUsado === "Dahlin") {
         controlUsado = 8;
       }
+      else if (controlUsado === "Lazo abierto") {
+        controlUsado = 0;
+        maxGrados = 100;
+        minGrados = 0;
+      }
 
       serial.write(controlUsado + "," + setPoint.toString());
 
@@ -233,9 +238,6 @@ function gotData() {
 /* #################################################### */
 /* #################################################### */
 
-function sendData(){
-  console.log("hola");
-}
 
 function draw() {
 
