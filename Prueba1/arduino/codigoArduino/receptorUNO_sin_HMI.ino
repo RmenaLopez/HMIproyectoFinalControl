@@ -107,6 +107,10 @@ void loop()
     matrizM[3] = matrizM[2];
     matrizM[2] = matrizM[1];
     matrizM[1] = matrizM[0];
+   
+      if (control == 0) {
+      matrizM[0] = SetPoint;
+    }
     
    if (control == 1){   //PID
       kc = realkc;
