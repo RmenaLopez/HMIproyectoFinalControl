@@ -44,7 +44,12 @@ window.onload = function () {
         name: "series2",
         legendText: "Medición",
         dataPoints: dps2
-      }]
+      }],
+      axisY:{
+        interval: 10,
+        viewportMinimum: -60,
+        viewportMaximum: 60
+      }
     });
     var chart2 = new CanvasJS.Chart("chartContainer2",{
 
@@ -60,7 +65,12 @@ window.onload = function () {
         name: "series2",
         legendText: "Manipulación",
         dataPoints: manipulaciones
-      }]
+      }],
+      axisY:{
+        interval: 10,
+        viewportMinimum: -60,
+        viewportMaximum: 90
+      }
     });
 
     var xVal = 0;
