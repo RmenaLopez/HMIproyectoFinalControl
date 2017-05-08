@@ -47,7 +47,7 @@ window.onload = function () {
       }],
       axisY:{
         interval: 10,
-        viewportMinimum: -60,
+        viewportMinimum: -70,
         viewportMaximum: 60
       }
     });

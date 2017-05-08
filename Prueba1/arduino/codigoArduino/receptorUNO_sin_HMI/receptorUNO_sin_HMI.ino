@@ -179,7 +179,7 @@ void loop()
   Serial.print(",");
   Serial.println(control);
  
-delay (T*100);
+delay ((T*100));
 
 }
 
